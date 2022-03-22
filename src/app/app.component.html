@@ -1,0 +1,73 @@
+<div class="content" >
+  <h1>Tags</h1>
+  <img src="assets/tags.gif">
+ 
+
+<div style="width: 54%;">
+  <table   >
+    <ng-container >
+    <tr >
+      <th style="background-color: #ABC69D;width:90px">{{sometext}}</th>
+      <th style="background-color: #C4BC9A; width: 10px;"  *ngFor="let tagss1 of tagss">  <span style="background-color: #9BB3C5;text-align: right;">{{tagss1}} </span></th>
+      </tr>
+    </ng-container>
+
+
+    
+      </table>
+      <div class="form-group">
+    
+        <div class="row">
+        <div class="col-md-4"><input type="text" [(ngModel)]="sometext"  (keyup)="onKey($event)" class="form-control"></div>
+        <div class="col-md-4"><input type="text" [(ngModel)]="masterText"  (keyup)="onKeyEdit($event)" class="form-control"></div>
+        
+      </div>
+      <div class="input-group">
+        <input type="text"  [(ngModel)]="newTag"  (keyup)="onKeyAdd($event)" class="form-control">
+        <span class="input-group-btn" style="width:0;">
+          <button class="btn btn-default" (click)="addtags(n)" >Add Tag</button>
+        </span>
+        <span class="input-group-btn" style="width:0;">
+          <button class="btn btn-default" (click)="removetags()">Remove last Tag</button>
+      </span>
+    </div>
+    </div>
+      </div>
+
+  
+  
+ 
+  
+  <h2>
+    The goal of this exercise is to reproduce the behaviour shown in this gif
+  </h2>
+  <h3>
+    Given the limited time available, implement in priority order:
+  </h3>
+
+  <ul>
+    <li>
+      General layout
+    </li>
+    <li>
+      Possibility to rename the Master tag
+    </li>
+    <li>
+      Possibility to add and remove tags
+    </li>
+    <li>
+      Possibility to name the tag to be added
+    </li>
+    <li>
+      Imagine that performances might be a concern
+    </li>
+    <li>
+      The +n behaviour when the space is too narrow to show every tags<br>
+      (Think of all the ways for the available space to change)
+    </li>
+    <li>
+      Now, tags come from a (slow) api
+    </li>
+  </ul>
+</div>
+ 
