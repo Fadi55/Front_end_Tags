@@ -4,28 +4,23 @@
  
 
 <div style="width: 54%;">
-  <table   >
+  <table>
     <ng-container >
     <tr >
       <th style="background-color: #ABC69D;width:90px">{{sometext}}</th>
-      <th style="background-color: #C4BC9A; width: 10px;"  *ngFor="let tagss1 of tagss">  <span style="background-color: #9BB3C5;text-align: right;">{{tagss1}} </span></th>
+      <th style="background-color: #C4BC9A; width: 10px;"  *ngFor="let item of TagsArray">  <span style="background-color: #9BB3C5;text-align: right;">{{item}}</span></th>
       </tr>
     </ng-container>
-
-
-    
       </table>
       <div class="form-group">
-    
         <div class="row">
         <div class="col-md-4"><input type="text" [(ngModel)]="sometext"  (keyup)="onKey($event)" class="form-control"></div>
         <div class="col-md-4"><input type="text" [(ngModel)]="masterText"  (keyup)="onKeyEdit($event)" class="form-control"></div>
-        
       </div>
       <div class="input-group">
         <input type="text"  [(ngModel)]="newTag"  (keyup)="onKeyAdd($event)" class="form-control">
         <span class="input-group-btn" style="width:0;">
-          <button class="btn btn-default" (click)="addtags(n)" >Add Tag</button>
+          <button class="btn btn-default" (click)="addtags()" >Add Tag</button>
         </span>
         <span class="input-group-btn" style="width:0;">
           <button class="btn btn-default" (click)="removetags()">Remove last Tag</button>

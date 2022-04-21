@@ -7,61 +7,59 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'tags';
-  tagadd:any;
-  n:number=0;
-  nn:any
-  masterText:any
-  tagEdit:any
-  sometext="Some Tags:";
-  newTag="New Tag";
-  isShown: boolean = false ;
+  tagAdds: any;
+  n: number = 0;
+  masterText: any
+  tagEdit: any
+  sometext = "Some Tags:";
+  newTag = "New Tag";
+  isShown: boolean = false;
   event: any;
-   tagss: string[] = ["Master tag","Tag n1 ", "Tag n2"];
-
+  TagsArray: string[] = ["Master tag", "Tag n1 ", "Tag n2"];
   selectedTags: string[] = []
+
   ngOnInit() {
-
-    this.masterText=this.tagss[0]
-    this.tagadd=this.newTag
+    this.masterText = this.TagsArray[0]
+    this.tagAdds = this.newTag
   }
-  toggleShowoff() {
 
-    this.isShown = ! this.isShown;
-
-    }
-    onKey(event: any) {
-      console.log(event.target.value)
-      this.sometext = event.target.value ;
-    }
  
-    
-   
-  addtags(nn:any){
- console.log(this.nn)
-    console.log(this.tagss)
-    if(this.tagss.length>4){
-  this.n=this.n+1
-     this.tagss[4]=this.n+"+";
+//event on key Retrieve data'sometext input'
+  onKey(event: any) {
+    this.sometext = event.target.value;
+  }
 
+
+  //function add Tags 
+  addtags() {
+    if (this.TagsArray.length > 4){
+      this.n = this.n + 1
+      this.TagsArray[4] = this.n + "+";
+    }else {
+      this.TagsArray.push(this.tagAdds);
+    }
+  }
+
+//event on key Retrieve data 'New Tag input'
+  onKeyAdd(event: any) {
+    this.tagAdds = event.target.value;
+  }
+
+  //event on key edit data'masterText input'
+  onKeyEdit(event: any) {
+    this.tagEdit = event.target.value;
+    this.TagsArray[0] = this.tagEdit;
+  }
+
+  //function remove Tag From Array
+  removetags() {
+    // number of n + tags 
+    if(this.n!==1){
+    this.n=this.n-1
+    this.TagsArray[4] = this.n + "+";
     }else{
-      this.tagss.push(this.tagadd);
+      this.TagsArray.splice(-1, 1)
     }
-    
-  }
-  onKeyAdd(event: any){
-this.tagadd= event.target.value ;
-console.log(this.tagadd)
-
   }
 
-  onKeyEdit(event: any){
-this.tagEdit= event.target.value ;
-this.tagss[0]=this.tagEdit;
-  }
-
-  removetags(){
-    this.tagss.splice(-1,1)
-  
-  }
- 
 }
